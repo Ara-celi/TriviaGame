@@ -1,9 +1,33 @@
-var correctAnswers=0
-var incorrectAnswers=0
-var unanswered=0
+console.log("DOCUMENT LOAD");
+//------------------------------DEFINE VARIABLES-------------------------------------
+var correctAnswers=0;
+var incorrectAnswers=0;
+var unanswered=0;
 var reset;
+var choicePicked=false;
+var answerWrong="Gag me with a spoon. Like, you're so wrong!!";
+var answerCorrect="Like OMG, you're absolutely correct!";
+var answerUnanswered="Bummer Dude! You're totally out of time!!";
 
-var questions=[
+var imgArray=new Array();
+  imgArray[0]=new Image();
+  imgArray[0].src='assets/images/mtv.jpeg';
+  imgArray[1]=new Image();
+  imgArray[1].src='assets/images/elmst.jpeg';
+  imgArray[2]=new Image();
+  imgArray[2].src='assets/images/bfclub.jpeg';
+  imgArray[3]=new Image();
+  imgArray[3].src='assets/images/tempest.jpeg';
+  imgArray[4]=new Image();
+  imgArray[4].src='assets/images/prince.jpeg';
+  imgArray[5]=new Image();
+  imgArray[5].src='assets/images/punky.jpeg';
+  imgArray[6]=new Image();
+  imgArray[6].src='assets/images/et.jpeg';
+  imgArray[7]=new Image();
+  imgArray[7].src='assets/images/penny.jpeg';
+
+var questionsAsked=[
   "What year was the first 'MTV Music Awards' hosted?",
   "Johnny Depp’s first big role was in?",
   "Which actor was NOT part of 'The Breakfast Club'?",
@@ -13,14 +37,15 @@ var questions=[
   "What was the highest-grossing film in the 80’s?",
   "Which animated cartoon had the character Penny?",
 ];
-var choices0=['1981', '1984', '1985', '1988'];
-var choices1=['Edward Scissorhands', '21 Jump Street', 'A nightmare on Elm St.', 'Platoon'];
-var choices2=['Paul Gleason', 'Charlie Sheen', 'Anthony Micheal Hall', 'Emilio Estevez'];
-var choices3=['Sixteen Candles', 'The Breakfast Club', 'Pretty in Pink','Tempest'];
-var choices4=['Prince', 'Lionel Richie', 'Michael Jackson', 'Huey Lewis'];
-var choices5=['Small Wonder', 'Punky  Brewster', 'Greatest American Hero', 'Saved by the Bell'];
-var choices6=['E.T. the Extra-Terrestrial', 'GhostBusters', 'Jaws', 'Starwars Return of the Jedi'];
-var choices7=['JEM', 'Inspector Gadget', 'Thundercats', 'The Littles'];
+var choices=[ ];
+choices[0]=['1981', '1984', '1985', '1988'];
+choices[1]=['Edward Scissorhands', '21 Jump Street', 'A nightmare on Elm St.', 'Platoon'];
+choices[2]=['Paul Gleason', 'Charlie Sheen', 'Anthony Micheal Hall', 'Emilio Estevez'];
+choices[3]=['Sixteen Candles', 'The Breakfast Club', 'Pretty in Pink','Tempest'];
+choices[4]=['Prince', 'Lionel Richie', 'Michael Jackson', 'Huey Lewis'];
+choices[5]=['Small Wonder', 'Punky Brewster', 'Greatest American Hero', 'Saved by the Bell'];
+choices[6]=['E.T. the Extra-Terrestrial', 'GhostBusters', 'Jaws', 'Starwars Return of the Jedi'];
+choices[7]=['JEM', 'Inspector Gadget', 'Thundercats', 'The Littles'];
 
 var answers=[
 '1984',
@@ -28,68 +53,70 @@ var answers=[
 'Charlie Sheen',
 'Tempest',
 'Prince',
-'Punky  Brewster',
+'Punky Brewster',
 'E.T. the Extra-Terrestrial',
 'Inspector Gadget'
 ];
+console.log("choices all up = "+choices);
+//---------------------------DEFINE FUNCTIONS-----------------------------------
 
-console.log("Start TriviaGame here ");
-
-
+//Click start to begin playGame
+    //show question and choices to choose from
 function playGame(){
-  for (var i = 0; i < questions.length; i++){
-    document.getElementById
-    
+      console.log("playGame start")
+  for (var i = 0; i < questionsAsked.length; i++){
+      console.log("--------looping through question "+i+" -------")
+      console.log(questionsAsked[i])
+      for (p=0;p<choices[i].length;p++){  
+        console.log("choice "+p+" = "+choices[i][p])
+      }
+    console.log("---------------------")
   }
+  console.log("playGame Ends")
+}
+
+//click on an choice
+function selectAnswer(){
+    console.log("time to choose an answer")
+  for (var i = 0; i < answers.length; i++){
+      console.log("looping through answers")
+      console.log(answers[i])
+  } 
+
+  if (choicePicked==false){
+    //tell player answer is wrong
+    //tell player correct answer
+    //show image
+    //automatically move to next question
+   
+  }else if (choicePicked=true){
+    //tell the player they are correct
+    //show image
+    //automatically move to next queston
+
+  }else{
+    //tell player they are out of time
+    //show correct answer 
+    //show image
+    //autmatically move to next question
+  }
+  
+   
 }
 
 
 
 
+//---------------------------TIE FUNCTIONS TO EVENTS-------------------------------
 
+//gets executed whenever element with class ".choose" is clicked;
+$("#start").click(function() {     
+      playGame();
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//gets executed whenever element with class ".choose" is clicked;
+$(".choose").click(function() {      
+      selectAnswer();
+});
 
 

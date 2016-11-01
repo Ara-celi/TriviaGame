@@ -9,9 +9,12 @@ body {
     color: white; 
 }
 #h1 { 
-	color: white;
 	text-align: center;
 	font-family: impact;
 	font-size: 100px;
 	
  }
+ img {
+	width: 30%;
+	height: 250px;
+	
