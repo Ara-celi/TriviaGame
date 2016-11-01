@@ -1,0 +1,17 @@
+
+html {
+    height: 100%;
+}
+body {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: Verdana, Geneva, sans-serif;
+    color: white; 
+}
+#h1 { 
+	color: white;
+	text-align: center;
+	font-family: impact;
+	font-size: 100px;
+	
+ }
