@@ -68,7 +68,7 @@ function playGame(){
       console.log("--------looping through question "+i+" -------")
       console.log(questionsAsked[i])
       for (p=0;p<choices[i].length;p++){  
-        console.log("choice "+p+" = "+choices[i][p])
+        console.log("choice "+p+" = "+choices[i][p])  
       }
     console.log("---------------------")
   }
@@ -82,29 +82,35 @@ function selectAnswer(){
       console.log("looping through answers")
       console.log(answers[i])
   } 
-
-  if (choicePicked==false){
-    //tell player answer is wrong
-    //tell player correct answer
-    //show image
-    //automatically move to next question
-   
-  }else if (choicePicked=true){
+  choices=true
+  if (choices==true){
     //tell the player they are correct
-    //show image
+    document.getElementById("answerChosen").innerHTML="Like OMG, you're absolutely correct!";
+    console.log("correct answer ")
     //automatically move to next queston
 
+  }else if (choices==false){
+    //if player chooses wrong answer
+    document.getElementById("answerChosen").innerHTML="Gag me with a spoon. Like, you're so wrong!!"; 
+    //tell player correct answer
+    alert("The correct answer is: "+answers);    
+    //automatically move to next question 
   }else{
     //tell player they are out of time
+    document.getElementById("answerChosen").innerHTML="Bummer Dude! You're totally out of time!!";
     //show correct answer 
-    //show image
+    alert("The correct answer is: "+answers);
     //autmatically move to next question
   }
-  
+}
+ function displayImage() {
+  console.log("time to see some images")
+  for (var i = 0; i < Array.length; i++){
+      console.log("looping through images")
+      document.getElementById("answerImage");
+ }
    
 }
-
-
 
 
 //---------------------------TIE FUNCTIONS TO EVENTS-------------------------------
@@ -118,5 +124,7 @@ $("#start").click(function() {
 $(".choose").click(function() {      
       selectAnswer();
 });
-
+$(".choose").click(function() {
+      displayImage();
+})
 
